@@ -1,12 +1,13 @@
 FROM openjdk:8u191-jre-alpine3.8
 
+# Install jq and curl
 RUN apk add curl jq
 
 # Workspace
 WORKDIR /usr/share/udemy
 
 # ADD .jar under target from host
-# into this image
+# into this image 
 ADD target/selenium-docker.jar 			selenium-docker.jar
 ADD target/selenium-docker-tests.jar 	selenium-docker-tests.jar
 ADD target/libs							libs
@@ -26,3 +27,4 @@ ADD healthcheck.sh                      healthcheck.sh
 # MODULE
 
 ENTRYPOINT sh healthcheck.sh
+#ENTRYPOINT java -cp selenium-docker.jar:selenium-docker-tests.jar:libs/* -DBROWSER=$BROWSER -DHUB-HOST=$HUB-HOST org.testng.TestNG ../book-flight-module.xml
