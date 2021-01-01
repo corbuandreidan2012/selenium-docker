@@ -36,11 +36,12 @@ pipeline {
         stage('Cleaning up') {
             agent {
                 docker {
-                   label 'docker'
+                    image '$registry:${BUILD_NUMBER}'
+                    label 'docker'
                 }
             }
             steps {
-               sh "docker rmi $registry:$BUILD_NUMBER"
+                sh "docker rmi $registry:${BUILD_NUMBER}"
            }
         }
     }
