@@ -34,9 +34,14 @@ pipeline {
             }
         }
         stage('Cleaning up') {
-             steps {
-                 sh "docker rmi $registry:${BUILD_NUMBER}"
-             }
+            agent {
+                docker {
+                   label 'docker'
+                }
+            }
+            steps {
+               sh "docker rmi $registry:$BUILD_NUMBER"
+           }
         }
     }
 }
