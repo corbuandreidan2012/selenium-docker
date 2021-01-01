@@ -1,4 +1,7 @@
 pipeline {
+    environment {
+        registry = "andreidan2004/selenium-docker"
+    }
     agent none
     stages {
         stage('Build Jar') {
@@ -16,7 +19,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                	app = docker.build("andreidan2004/selenium-docker")
+                	app = docker.build(registry)
                 }
             }
         }
