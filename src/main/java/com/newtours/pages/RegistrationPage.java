@@ -27,7 +27,7 @@ public class RegistrationPage {
     @FindBy(name = "confirmPassword")
     private WebElement confirmPasswordTxt;
 
-    @FindBy(name = "register")
+    @FindBy(name = "submit")
     private WebElement submitBtn;
 
     public RegistrationPage(WebDriver driver){
@@ -37,7 +37,7 @@ public class RegistrationPage {
     }
 
     public void goTo(){
-        this.driver.get("http://newtours.demoaut.com/mercuryregister.php");
+        this.driver.get("http://demo.guru99.com/test/newtours/register.php");
         this.wait.until(ExpectedConditions.visibilityOf(this.firstNameTxt));
     }
 
