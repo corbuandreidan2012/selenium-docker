@@ -16,7 +16,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                	app = docker.build("andreidocker/selenium-docker")
+                	app = docker.build("andreidan2004/selenium-docker")
                 }
             }
         }
@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Cleaning up') {
              steps {
-                 sh "docker rmi $registry:$BUILD_NUMBER" 
+                 sh "docker rmi $registry:$BUILD_NUMBER"
              }
         }
     }
