@@ -2,3 +2,5 @@
 .DS_Store
 .idea
 output
+docker-compose.yaml
+selenium-docker.iml
