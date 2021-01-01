@@ -28,21 +28,9 @@ pipeline {
                 script {
 			        docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
 			        	app.push("${BUILD_NUMBER}")
-			            app.push("latest")
 			        }
                 }
             }
-        }
-        stage('Cleaning up') {
-            agent {
-                docker {
-                    image '$registry:${BUILD_NUMBER}'
-                    label 'docker'
-                }
-            }
-            steps {
-                sh "docker rmi $registry:${BUILD_NUMBER}"
-           }
         }
     }
 }
