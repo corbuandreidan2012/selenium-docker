@@ -2,7 +2,7 @@ pipeline {
     environment {
         registry = "andreidan2004/selenium-docker"
     }
-    agent any
+    agent none
     stages {
         stage('Build Jar') {
             agent {
@@ -35,7 +35,7 @@ pipeline {
         }
         stage('Cleaning up') {
              steps {
-                 sh "docker rmi $registry:$BUILD_NUMBER"
+                 sh "docker rmi $registry:${BUILD_NUMBER}"
              }
         }
     }
