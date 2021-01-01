@@ -2,7 +2,7 @@ pipeline {
     environment {
         registry = "andreidan2004/selenium-docker"
     }
-    agent none
+    agent any
     stages {
         stage('Build Jar') {
             agent {
