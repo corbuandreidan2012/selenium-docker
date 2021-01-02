@@ -9,7 +9,7 @@ pipeline {
                 docker {
                     image 'maven:3-alpine'
                     label 'docker'
-                    args '-v /root/.m2:/root/.m2'
+                    args '-v $HOME/.m2:/root/.m2'
                 }
             }
             steps {
